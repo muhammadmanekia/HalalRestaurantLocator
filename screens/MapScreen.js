@@ -11,6 +11,7 @@ import MenuItems from '../components/MenuItems'
 import ViewCart from '../components/ViewCart';
 import LocationMap from '../components/LocationMap';
 import RestaurantItem from '../components/RestaurantItem';
+import RestaurantItemCard from '../components/RestaurantItemCard';
 
 const MapScreen = ({coordinates, restaurantData}) => {
     return (
@@ -19,13 +20,19 @@ const MapScreen = ({coordinates, restaurantData}) => {
                 <Ionicons name="arrow-back" size={18} color={colors.black} />
             </TouchableOpacity>
             <View style={styles.mapImageWrpper}>
-                    <LocationMap coordinates={coordinates} />
+                    <LocationMap coordinates={coordinates} restaurants={restaurantData}/> 
             </View>
 
             <ScrollView showsVerticalScrollIndicator={false} style={tailwind`z-20`}>
                 <View style={styles.content}>
                     {/* MenuItems */}
-                    <RestaurantItem restaurantData={restaurantData} />
+                    <ScrollView>
+                        {restaurantData?.slice(0,5).map((item, index) => (
+                            <RestaurantItemCard key={index} item={item} 
+                            onPress={() => handlePress(item)} 
+                            />
+                        ))}
+                    </ScrollView>
                     {/* <MenuItems resName={name} resImage={image_url} /> */}
                 </View>
             </ScrollView>

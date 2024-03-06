@@ -29,7 +29,7 @@ const DetailsScreen = ({ route, navigation }) => {
                 {mapActive ? (
                     <RestaurantMap coordinates={coordinates} title={name} />
                 ) : (
-                    <Image source={{ uri: image_url }} style={styles.image} />
+                    <Image source={{ uri: image_url ? image_url : "https://media.istockphoto.com/id/1498243668/photo/tasty-cheeseburger-with-lettuce-cheddar-cheese-tomato-and-pickles-burger-bun-with-sesame.webp?b=1&s=170667a&w=0&k=20&c=hn0NNDGgZAQZ6qEBwO5mhku7OAIy0TKEg6Zgg8n4LTI=" }} style={styles.image} />
                 )}
             </View>
 

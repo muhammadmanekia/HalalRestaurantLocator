@@ -4,7 +4,6 @@ import tailwind from 'tailwind-react-native-classnames';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Feather from 'react-native-vector-icons/Feather';
-
 const SearchBar = ({ setCity, city, setCoordinates }) => {
 
     return (
@@ -19,7 +18,7 @@ const SearchBar = ({ setCity, city, setCoordinates }) => {
                 returnKeyType={"search"}
                 onFail={error => console.error(error)}
                 query={{
-                    key: "AIzaSyB0IJaRhuKlkthw8gC9-jZBwk4OD__Clec",
+                    key: "",
                     language: 'en',
                 }}
                 styles={{

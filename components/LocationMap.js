@@ -4,7 +4,7 @@ import MapView, { Marker } from 'react-native-maps'
 import tailwind from 'tailwind-react-native-classnames';
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
 
-const LocationMap = ({ coordinates, title }) => {
+const LocationMap = ({ coordinates, restaurants }) => {
     const mapRef = useRef(null)
 
     return (
@@ -30,6 +30,18 @@ const LocationMap = ({ coordinates, title }) => {
                         <MaterialCommunityIcons name="map-marker-check" color="red" size={48} />
                     </Marker>
                 )}
+                {restaurants.map((restaurant, index) => (
+                    <Marker
+                        key={index}
+                        coordinate={{
+                            latitude: restaurant.coordinates.latitude,
+                            longitude: restaurant.coordinates.longitude,
+                        }}
+                        title={restaurant.title}
+                    >
+                        <MaterialCommunityIcons name="map-marker-check" color="red" size={48} />
+                    </Marker>
+                ))}
             </MapView >
         </View >
     );

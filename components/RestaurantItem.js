@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Image, Text, TouchableOpacity, View } from 'react-native';
+import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import tailwind from 'tailwind-react-native-classnames';
 import { Entypo } from "react-native-vector-icons";
 import { MaterialCommunityIcons } from 'react-native-vector-icons';
@@ -18,13 +18,13 @@ const RestaurantItem = ({ restaurantData }) => {
 
 return (
     <View>
-        {restaurantData?.map((item, index) => (
-            <>
+        <ScrollView horizontal>
+        {restaurantData?.slice(0,5).map((item, index) => (
             <RestaurantItemCard key={index} item={item} 
             onPress={() => handlePress(item)} 
             />
-            </>
         ))}
+        </ScrollView>
     </View>
 );
 }
